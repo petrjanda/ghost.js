@@ -28,19 +28,14 @@ index.html
 
 ```html
 <script type="text/javascript" src="ghost.min.js"></script>
+<script type="text/javascript" src="core.js"></script>
+<script type="text/javascript" src="namespace.js"></script>
 <script type="text/javascript">
-  register('namespace', function() {
-    window.Namespace = {};
-  });
+  // You can see above it modules would work regardless the order of loading.
+  // Each module should require its own dependancies, so it makes sure it would work.
 
-  // ...
-
-  // Here comes simple Foo module. It has the Namespace module as dependancy, so we make
-  // sure its executed before Foo. Way how to execute the code is to call require function.
-
-  require('namespace');
-  window.Namespace.Foo = {};
-
+  // Require Core module.
+  require('core');
 </script>
 ```
 
@@ -52,7 +47,7 @@ register('namespace', function() {
 });
 ```
 
-foo.js
+core.js
 
 ```javascript
 
@@ -60,7 +55,7 @@ foo.js
 // sure its executed before Foo. Way how to execute the code is to call require function.
 
 require('namespace');
-window.Namespace.Foo = {};
+window.Namespace.Core = {};
 ```
 
 ## API
