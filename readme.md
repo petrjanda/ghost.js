@@ -24,6 +24,8 @@ You can include the Ghost into your html and directly start using it.
 
 Here comes the very simple example, which shows, how to use the Ghost:
 
+index.html
+
 ```html
 <script type="text/javascript" src="ghost.min.js"></script>
 <script type="text/javascript">
@@ -40,6 +42,25 @@ Here comes the very simple example, which shows, how to use the Ghost:
   window.Namespace.Foo = {};
 
 </script>
+```
+
+namespace.js
+
+```javascript
+register('namespace', function() {
+  window.Namespace = {};
+});
+```
+
+foo.js
+
+```javascript
+
+// Here comes simple Foo module. It has the Namespace module as dependancy, so we make
+// sure its executed before Foo. Way how to execute the code is to call require function.
+
+require('namespace');
+window.Namespace.Foo = {};
 ```
 
 ## API
