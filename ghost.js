@@ -32,6 +32,10 @@ var Ghost = {
   require: function(name) {
     var module = this._modules[name];
 
+    if(!module) {
+      throw 'Module \'' + name + '\' doesnt exist!';
+    }
+    
     if(module.loaded) {
       return;
     }
