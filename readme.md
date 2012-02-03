@@ -8,8 +8,6 @@ Once you want to develop larger scale application, you will start to divede your
 into multiple pieces - modules. Each module can stay on its own or base on another.
 The module dependency will soon become the problem, you would have to tackle. 
 
-## How does it work
-
 Ghost is simple and fullfil just one purpose - handle your dependency management. The 
 modules are registered to global container, which is then used to require and execute
 the module. Because it takes care to check if module was already required, it would
